@@ -28,7 +28,7 @@ fn main() {
         .expect("Could not create output file.");
     let parser = "\r\n";
     let max_buffer_len: usize = 64;
-    let parsed_data = parse_data(&data, &parser, &max_buffer_len);
+    let parsed_data: Vec<&str> = parse_data(&data, &parser, &max_buffer_len);
     let mut port = serial::open(&port_name).expect("Failed to open port.");
     port.configure(&SETTINGS).expect("Failed to set port settings.");
     port.flush().expect("Failed to flush port buffer.");
